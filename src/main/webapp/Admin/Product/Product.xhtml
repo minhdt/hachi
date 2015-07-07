@@ -12,20 +12,20 @@
     <ui:define name="toolbar">
         <h:form id="fmToolbar">
             <div class="btn-group">
-                <p:commandLink styleClass="btn btn-default" immediate="true"
+                <h:link styleClass="btn btn-default" outcome="Product_Create">
+                    <i class="fa fa-plus"></i>
+                    Add
+                </h:link>
+<!--                <p:commandLink styleClass="btn btn-default" immediate="true"
                                actionListener="#{productController.resetEntity()}"
                                update=":fmCreate"
                                oncomplete="showDialog('popCreate');">
                     <i class="fa fa-plus"></i>
                     Add
                     <p:resetInput target=":fmCreate"/>
-                </p:commandLink>
+                </p:commandLink>-->
             </div>
         </h:form>
-    </ui:define>
-    <ui:define name="dialogs">
-        <ui:include src="Product_Create.xhtml"/>
-        <ui:include src="Product_Edit.xhtml"/>
     </ui:define>
     <ui:define name="content">
         <h:form id="fmList">

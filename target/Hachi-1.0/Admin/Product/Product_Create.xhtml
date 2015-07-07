@@ -1,52 +1,118 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                template="./../Template/Template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:hachi="http://xmlns.jcp.org/jsf/composite/hachi"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
 
-    <h:form id="fmCreate">
-        <div id="popCreate" class="modal fade in">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Add new product</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Title</label>
-                                    <h:inputText id="txtNewTitle"
-                                                 value="#{productController.current.title}"
-                                                 styleClass="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <h:inputTextarea id="txtNewDesc"
-                                                     value="#{productController.current.description}"
-                                                     rows="5"
+    <ui:define name="title">Product</ui:define>
+    <ui:define name="subTitle">Add new</ui:define>
+    <ui:define name="content">
+        <h:form id="fmCreate">
+            <div class="row">
+                <div class="col-md-12">
+                    <hachi:box boxClass="box box-primary" boxTitle="Search" boxMinimize="true">
+                        <f:facet name="content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Product Code</label>
+                                        <h:inputText id="txtNewCode"
+                                                     value="#{productController.current.code}"
                                                      styleClass="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <h:inputText id="txtNewTitle"
+                                                     value="#{productController.current.title}"
+                                                     styleClass="form-control"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <p:commandLink id="lbtSave"
-                                       actionListener="#{productController.persist()}"
-                                       styleClass="btn btn-primary"
-                                       update="fmCreate :fmList"
-                                       oncomplete="hideDialog('popCreate');">
-                            <i class="fa fa-save"/>
-                            Create
-                        </p:commandLink>
-                    </div>
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Manufacture</label>
+                                        <h:inputText id="txtNewManu"
+                                                     value="#{productController.current.manufacture}"
+                                                     styleClass="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <h:inputText id="txtNewQuantity"
+                                                     value="#{productController.current.totalQuantity}"
+                                                     styleClass="form-control">
+                                            <f:convertNumber type="number" integerOnly="true"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <h:inputText id="txtNewPrice"
+                                                     value="#{productController.current.price}"
+                                                     styleClass="form-control">
+                                            <f:convertNumber type="currency" integerOnly="true"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Cost</label>
+                                        <h:inputText id="txtNewCost"
+                                                     value="#{productController.current.cost}"
+                                                     styleClass="form-control">
+                                            <f:convertNumber type="currency" integerOnly="true"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <h:inputTextarea id="txtNewDesc"
+                                                         value="#{productController.current.description}"
+                                                         rows="2"
+                                                         styleClass="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Images</label>
+                                        <p:fileUpload id="fuImages" value="#{productController.uploadFiles}" fileUploadListener="#{fileUploadView.handleFileUpload}"
+                                                      mode="advanced" dragDropSupport="false" multiple="true"
+                                                      fileLimit="3"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:facet>
+                        <f:facet name="footer">
+                            <div class="pull-right">
+                                <p:commandLink id="lbtSave"
+                                               actionListener="#{productController.persist()}"
+                                               styleClass="btn btn-primary"
+                                               update="fmCreate :fmList"
+                                               oncomplete="hideDialog('popCreate');">
+                                    <i class="fa fa-save"/>
+                                    Create
+                                </p:commandLink>
+                            </div>
+                        </f:facet>
+                    </hachi:box>
                 </div>
             </div>
-        </div>
-    </h:form>
-
+        </h:form>
+    </ui:define>
 </ui:composition>

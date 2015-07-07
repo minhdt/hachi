@@ -18,25 +18,29 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "HC_PRODUCT")
-public class Product extends BaseEntity{
-    
+public class Product extends BaseEntity {
+
+    @Column(length = 200, nullable = false)
+    protected String code;
+
     @Column(length = 200, nullable = false)
     protected String title;
-    
+
     @Column(length = 200)
     protected String manufacture;
-    
-    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL}, orphanRemoval = true)
-    protected List<ProductImage> images;
-    
-    protected Double prices;
-    
+
+    @Column(name = "PRODUCT_PRICE")
+    protected Double price;
+
+    @Column(name = "PRODUCT_COST")
+    protected Double cost;
+
     @Column(name = "TOTAL_QUANTITY")
     protected Integer totalQuantity;
-    
-    @Column(name = "CURRENT_QUANTITY")
-    protected Integer curQuantity;
-    
+
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    protected List<ProductImage> images;
+
     @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL}, orphanRemoval = true)
     protected List<ProductCampaign> listProductCampaign;
 
@@ -64,12 +68,20 @@ public class Product extends BaseEntity{
         this.images = images;
     }
 
-    public Double getPrices() {
-        return prices;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrices(Double prices) {
-        this.prices = prices;
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getCost() {
+        return cost;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
     }
 
     public Integer getTotalQuantity() {
@@ -80,14 +92,6 @@ public class Product extends BaseEntity{
         this.totalQuantity = totalQuantity;
     }
 
-    public Integer getCurQuantity() {
-        return curQuantity;
-    }
-
-    public void setCurQuantity(Integer curQuantity) {
-        this.curQuantity = curQuantity;
-    }
-
     public List<ProductCampaign> getListProductCampaign() {
         return listProductCampaign;
     }
@@ -95,4 +99,13 @@ public class Product extends BaseEntity{
     public void setListProductCampaign(List<ProductCampaign> listProductCampaign) {
         this.listProductCampaign = listProductCampaign;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 }
