@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form id="fmCreate">
+        <div id="popCreate" class="modal fade in">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Add new size</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <h:inputText id="txtNewTitle"
+                                                 value="#{productSizeController.current.title}"
+                                                 styleClass="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Value</label>
+                                    <h:inputText id="txtNewValue"
+                                                 value="#{productSizeController.current.value}"
+                                                 styleClass="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <h:inputTextarea id="txtNewDesc"
+                                                     value="#{productSizeController.current.description}"
+                                                     rows="5"
+                                                     styleClass="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p:commandLink id="lbtSave"
+                                       actionListener="#{productSizeController.persist()}"
+                                       styleClass="btn btn-primary"
+                                       update="fmCreate :fmList"
+                                       oncomplete="hideDialog('popCreate');">
+                            <i class="fa fa-save"/>
+                            Create
+                        </p:commandLink>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+</ui:composition>

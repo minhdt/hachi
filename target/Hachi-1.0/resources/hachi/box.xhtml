@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="boxClass"/>
+        <cc:attribute name="boxTitle"/>
+        <cc:attribute name="boxMinimize"/>
+        <cc:attribute name="boxClose"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div class="#{cc.attrs.boxClass}">
+            <div class="box-header with-border">
+                <h3 class="box-title">#{cc.attrs.boxTitle}</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse" style="#{cc.attrs.boxMinimize ? '' : 'display: none;'}">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button class="btn btn-box-tool" data-widget="remove" style="#{cc.attrs.boxClose ? '' : 'display: none;'}">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <cc:renderFacet name="content"/>
+            </div>
+            <div class="box-footer">
+                <cc:renderFacet name="footer"/>
+            </div>
+        </div>
+    </cc:implementation>
+</html>

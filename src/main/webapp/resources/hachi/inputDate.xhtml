@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="inputId"/>
+        <cc:attribute name="inputValue"/>
+        <cc:attribute name="binding"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div class="input-group">
+            <h:inputText styleClass="form-control pull-right date-picker"
+                         id="#{cc.attrs.inputId}"
+                         value="#{cc.attrs.inputValue}"
+                         binding="#{cc.attrs.binding}"/>
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+        </div>
+        <h:outputScript target="body">
+            // When the document is ready
+            $(document).ready(function () {
+
+            $('.date-picker').datepicker({
+            format: "dd/mm/yyyy"
+            });
+
+            });
+        </h:outputScript>
+    </cc:implementation>
+</html>

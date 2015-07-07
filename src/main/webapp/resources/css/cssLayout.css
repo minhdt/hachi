@@ -1,0 +1,116 @@
+/*
+#top {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+*/
+.ui-widget-header {
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+}
+
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+    color: #4f4f4f;
+    font-size: 14px;
+    font-family: 'Source Sans Pro',sans-serif;
+}
+
+.ui-datatable thead th, .ui-datatable tfoot td {
+    text-align: center;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 15px;
+}
+
+.ui-datatable thead th {
+    padding: 4px 10px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: none !important;
+}
+
+.ui-datatable tbody td {
+    padding: 4px 10px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid !important;
+    border-color: #ccc !important;
+}
+
+.ui-datatable tfoot td {
+    padding: 4px 10px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    background: none;
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+}
+
+.ui-datatable-tablewrapper {
+    padding-right: 1px;
+}
